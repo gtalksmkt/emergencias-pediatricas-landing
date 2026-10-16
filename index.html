@@ -77,7 +77,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 h1,h2,h3,.eyebrow{font-family:var(--font-head);text-transform:uppercase}
 h1{
   font-weight:700;
-  font-size:clamp(2.2rem,3.7vw,3.15rem);
+  font-size:clamp(2.2rem,3.5vw,3.05rem);
   line-height:1.04;
   letter-spacing:.4px;
   color:var(--white);
@@ -285,6 +285,12 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
   mask-composite:intersect;
 }
 
+/* Desktop: arte maior, avançando até a margem direita da tela */
+@media (min-width:861px){
+  .hero-grid{grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,40px)}
+  .hero-visual{justify-self:start;max-width:none;width:calc(100% + clamp(0px,(100vw - 1160px)/2,130px))}
+}
+
 /* Selo flutuante */
 .float-seal{
   position:absolute;z-index:20;
@@ -297,7 +303,7 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 }
 .float-seal svg{width:18px;height:18px;color:var(--lime)}
 .float-seal.s1{top:4%;left:-10px;animation:floaty 5s ease-in-out infinite}
-.float-seal.s2{bottom:14%;right:-8px;animation:floaty 5s ease-in-out infinite .8s}
+.float-seal.s2{bottom:14%;right:3%;animation:floaty 5s ease-in-out infinite .8s}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
 /* ---------- ECG divider animado ---------- */
@@ -377,11 +383,9 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 .tl-step p{font-size:.98rem;color:var(--gray-light);max-width:250px}
 .tl-step p b{color:var(--white);font-weight:600}
 
-/* ---------- O curso + vídeo ---------- */
+/* ---------- O curso ---------- */
 .about{background:linear-gradient(180deg,#070D04,#030502)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px);align-items:center}
-.about-text .lead{margin-top:18px}
-.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.about-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .mini-card{
   background:var(--card-bg);border:1px solid var(--line);border-radius:14px;
   padding:16px;display:flex;gap:12px;align-items:center;
@@ -393,7 +397,9 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 .mini-card b{display:block;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.5px;color:var(--white);font-size:1rem;font-weight:500;line-height:1.2}
 .mini-card small{display:block;font-size:.8rem;color:var(--gray-mid);margin-top:2px}
 
-.video-wrap{position:relative}
+/* ---------- Vídeo ---------- */
+.video-sec{background:radial-gradient(circle at 50% 55%,rgba(155,234,11,.12),transparent 55%),#030502}
+.video-player{max-width:960px;margin:0 auto}
 .video-frame{
   position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;
   border:1px solid var(--line-strong);
@@ -419,27 +425,12 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 }
 .play-btn svg{width:42%;height:42%;margin-left:8%}
 .video-facade:hover .play-btn{transform:scale(1.08)}
+/* Sem link de vídeo ainda: mostra "em breve" e não reage ao clique */
+.video-facade.is-empty{cursor:default}
+.video-facade.is-empty .play-btn{animation:none;opacity:.55}
+.video-facade.is-empty:hover .play-btn{transform:none}
 @keyframes ring{0%{box-shadow:0 0 0 0 rgba(200,250,10,.55),0 10px 30px rgba(0,0,0,.5)}100%{box-shadow:0 0 0 22px rgba(200,250,10,0),0 10px 30px rgba(0,0,0,.5)}}
 .play-label{font-family:var(--font-head);text-transform:uppercase;letter-spacing:2px;font-size:.8rem;color:var(--white);background:rgba(3,5,2,.6);padding:5px 10px;border-radius:6px;border:1px solid var(--line)}
-.video-caption{display:flex;gap:12px;align-items:flex-start;margin-top:18px}
-.video-caption svg{flex-shrink:0;width:22px;height:22px;color:var(--lime);margin-top:3px}
-.video-caption b{display:block;font-family:var(--font-head);text-transform:uppercase;font-weight:500;letter-spacing:.4px;color:var(--white);font-size:1.12rem;line-height:1.2}
-.video-caption span{font-size:.88rem;color:var(--gray-mid)}
-
-/* ---------- Para quem é ---------- */
-.audience{background:linear-gradient(180deg,#030502,#0A0B09)}
-.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.aud-card{
-  background:linear-gradient(180deg,rgba(40,44,36,.9),rgba(16,19,13,.92));
-  border:1px solid var(--line);border-radius:14px;
-  padding:22px 20px;
-  transition:transform .3s var(--ease),border-color .3s,box-shadow .3s;
-}
-.aud-card:hover{transform:translateY(-6px);border-color:var(--lime);box-shadow:0 0 30px rgba(190,245,10,.22)}
-.aud-card .ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(190,245,10,.1);border:1px solid var(--line-strong);margin-bottom:14px}
-.aud-card .ic svg{width:24px;height:24px;color:var(--lime)}
-.aud-card b{display:block;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.5px;color:var(--white);font-weight:500;font-size:1.02rem;line-height:1.2}
-.aud-card span{display:block;font-size:.86rem;color:var(--gray-mid);margin-top:6px}
 
 /* ---------- Conteúdo ---------- */
 .program{background:radial-gradient(circle at 50% 0%,rgba(63,122,5,.16),transparent 50%),#030502}
@@ -511,36 +502,6 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
   box-shadow:0 0 30px rgba(155,234,11,.12);
 }
 .inst-quote em{font-style:normal;color:var(--lime)}
-
-/* ---------- Comparação ---------- */
-.compare-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:24px;align-items:stretch}
-.comp{border-radius:18px;padding:34px 30px}
-.comp h3{margin-bottom:22px;display:flex;align-items:center;gap:10px;min-height:64px}
-.comp h3 svg{width:24px;height:24px;flex-shrink:0}
-.comp-title{min-height:64px;margin-bottom:22px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-head);text-transform:uppercase;line-height:1;font-weight:700}
-.comp-title span{font-size:1.15rem;letter-spacing:2px;color:var(--white)}
-.comp-title b{font-size:2.1rem;letter-spacing:.5px;color:var(--lime);text-shadow:0 0 22px rgba(216,250,12,.35)}
-.comp ul li{display:flex;align-items:flex-start;gap:12px;padding:11px 0;font-size:1.02rem;border-top:1px solid rgba(255,255,255,.06)}
-.comp ul li:first-child{border-top:0}
-.comp ul li svg{flex-shrink:0;width:21px;height:21px;margin-top:2px}
-.comp-generic{background:rgba(30,32,28,.5);border:1px solid rgba(255,255,255,.08)}
-.comp-generic h3{color:var(--gray-light)}
-.comp-generic li{color:var(--gray-mid)}
-.comp-generic li svg{color:#5d6258}
-.comp-ours{
-  position:relative;
-  background:linear-gradient(180deg,rgba(190,245,10,.1),rgba(63,122,5,.08));
-  border:1.5px solid var(--lime);
-  box-shadow:0 0 50px rgba(190,245,10,.2);
-}
-.comp-ours li{color:var(--white-warm)}
-.comp-ours li svg{color:var(--lime)}
-.comp-badge{
-  position:absolute;top:-14px;right:24px;
-  font-family:var(--font-head);text-transform:uppercase;letter-spacing:1px;font-size:.74rem;
-  background:linear-gradient(90deg,#EBFD03,#8DE902);color:#0A1000;
-  padding:7px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(190,245,10,.35);
-}
 
 /* ---------- Inscrição / Oferta ---------- */
 .enroll{
@@ -640,9 +601,9 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 
 /* ---------- Responsivo ---------- */
 @media (max-width:1024px){
-  .impact-wrap,.about-grid{grid-template-columns:1fr;gap:44px}
+  .impact-wrap{grid-template-columns:1fr;gap:44px}
   .monitor{max-width:560px}
-  .aud-grid{grid-template-columns:repeat(2,1fr)}
+  .about-cards{grid-template-columns:repeat(2,1fr)}
   .benefits-grid{grid-template-columns:repeat(2,1fr)}
   .tl-grid{grid-template-columns:repeat(2,1fr);gap:36px}
   .timeline-line{display:none}
@@ -658,7 +619,6 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
   .hamburger{display:flex}
   .mobile-cta{display:block}
   .footer{padding-bottom:120px}
-  .compare-grid{grid-template-columns:1fr;gap:34px}
 }
 @media (max-width:680px){
   h1{font-size:clamp(2rem,9vw,2.6rem)}
@@ -671,9 +631,6 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
   .info-list .ii svg{width:18px;height:18px}
   .info-list .ii span{font-size:.82rem;line-height:1.3}
   .benefits-grid{grid-template-columns:1fr}
-  .aud-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-  .aud-card{padding:18px 14px}
-  .aud-card span{display:none}
   .vbar{padding-left:20px}
   .vitals{grid-template-columns:repeat(2,1fr)}
   .case-q ul{grid-template-columns:1fr}
@@ -692,8 +649,6 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
   .stats{gap:10px;margin-top:-24px}
   .stat{padding:10px 16px}
   .stat b{font-size:1.6rem}
-  .comp{padding:30px 22px}
-  .comp-title b{font-size:1.8rem}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -718,9 +673,9 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
       <img src="img/logo-emergency-talks.png" alt="Emergency Talks" class="logo-img" />
     </a>
     <nav class="nav-links" aria-label="Navegação principal">
+      <a href="#video">Vídeo</a>
       <a href="#curso">O curso</a>
       <a href="#conteudo">Conteúdo</a>
-      <a href="#para-quem">Para quem é</a>
       <a href="#instrutora">Instrutora</a>
       <a href="#inscricao">Inscrição</a>
     </nav>
@@ -735,9 +690,9 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 
 <!-- ===== MENU MOBILE ===== -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#video">Vídeo</a>
   <a href="#curso">O curso</a>
   <a href="#conteudo">Conteúdo</a>
-  <a href="#para-quem">Para quem é</a>
   <a href="#instrutora">Instrutora</a>
   <a href="#inscricao">Inscrição</a>
   <a href="#inscricao" class="btn btn-primary">Quero aprender agora</a>
@@ -772,7 +727,7 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
           <a href="#inscricao" class="btn btn-primary">Quero aprender agora
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="#curso" class="btn btn-secondary">
+          <a href="#video" class="btn btn-secondary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 4 20 12 6 20 6 4"/></svg>Assistir ao vídeo
           </a>
         </div>
@@ -848,6 +803,33 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 
 <hr class="divider"/>
 
+<!-- ===== VÍDEO ===== -->
+<section id="video" class="video-sec">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow reveal">ASSISTA AO VÍDEO</span>
+      <h2 class="reveal" style="--d:60ms">Por que todo médico precisa saber atender uma <span class="accent">emergência pediátrica?</span></h2>
+      <p class="lead reveal" style="--d:120ms">A Dra. Patrícia Lopes explica o que está em jogo quando uma criança grave chega no seu plantão.</p>
+    </div>
+
+    <div class="video-player reveal-zoom" style="--d:160ms">
+      <div class="video-frame" id="videoFrame">
+        <!-- PARA COLOCAR O VÍDEO: cole o link do YouTube ou do Vimeo em data-video="" abaixo -->
+        <button class="video-facade" id="videoFacade" data-video="" aria-label="Assistir ao vídeo: Por que todo médico precisa saber atender uma emergência pediátrica?">
+          <span class="halftone" aria-hidden="true"></span>
+          <img src="img/capa-video.webp" width="779" height="724" alt="" loading="lazy" />
+          <span class="video-play">
+            <span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
+            <span class="play-label">Assista ao vídeo</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
 <!-- ===== DO CAOS À CONDUTA ===== -->
 <section class="conduct">
   <div class="container">
@@ -894,72 +876,29 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 <!-- ===== O CURSO + VÍDEO ===== -->
 <section id="curso" class="about">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <span class="eyebrow reveal">O CURSO</span>
-        <h2 class="reveal" style="--d:60ms">O básico bem feito da emergência pediátrica, <span class="accent">100% online.</span></h2>
-        <p class="lead reveal" style="--d:120ms">Um curso criado para que todo médico que trabalha em unidades de saúde domine o essencial das emergências pediátricas — com aulas objetivas que você assiste quando e onde quiser.</p>
-
-        <div class="about-cards" data-stagger>
-          <div class="mini-card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-            <div><b>100% online</b><small>No seu ritmo, sem sair de casa</small></div>
-          </div>
-          <div class="mini-card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg></div>
-            <div><b>Certificado de 20h</b><small>Para complementar seu currículo</small></div>
-          </div>
-          <div class="mini-card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-            <div><b>Foco no plantão</b><small>O que chega e o que é grave</small></div>
-          </div>
-          <div class="mini-card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
-            <div><b>Como eu prescrevo</b><small>Conduta pronta para usar</small></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Vídeo (Vimeo) — carrega só ao clicar -->
-      <div class="video-wrap reveal-right" style="--d:120ms">
-        <div class="video-frame" id="videoFrame">
-          <button class="video-facade" id="videoFacade" data-vimeo="1047574719" aria-label="Assistir ao vídeo: Por que todo médico precisa saber atender uma emergência pediátrica?">
-            <span class="halftone" aria-hidden="true"></span>
-            <img src="img/capa-video.webp" width="779" height="724" alt="" loading="lazy" />
-            <span class="video-play">
-              <span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
-              <span class="play-label">Assista ao vídeo</span>
-            </span>
-          </button>
-        </div>
-        <div class="video-caption">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-          <div><b>Por que todo médico precisa saber atender uma emergência pediátrica?</b><span>A Dra. Patrícia explica no vídeo.</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider"/>
-
-<!-- ===== PARA QUEM É ===== -->
-<section id="para-quem" class="audience">
-  <div class="container">
     <div class="section-head center">
-      <span class="eyebrow reveal">PARA QUEM É</span>
-      <h2 class="reveal" style="--d:60ms">Para todo médico que pode <span class="accent">receber uma criança no plantão.</span></h2>
-      <p class="lead reveal" style="--d:120ms">Ou seja: praticamente todos. O curso foi pensado especialmente para quem não é pediatra, mas precisa estar pronto quando a criança chegar.</p>
+      <span class="eyebrow reveal">O CURSO</span>
+      <h2 class="reveal" style="--d:60ms">O básico bem feito da emergência pediátrica, <span class="accent">100% online.</span></h2>
+      <p class="lead reveal" style="--d:120ms">Um curso criado para que todo médico que trabalha em unidades de saúde domine o essencial das emergências pediátricas — com aulas objetivas que você assiste quando e onde quiser.</p>
     </div>
-    <div class="aud-grid" data-stagger>
-      <div class="aud-card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><b>Plantonistas de PS e UPA</b><span>Porta aberta para qualquer idade</span></div>
-      <div class="aud-card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><b>Quem atende só adultos</b><span>E pode ser surpreendido</span></div>
-      <div class="aud-card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><b>Atenção primária e UBS</b><span>A primeira porta da criança</span></div>
-      <div class="aud-card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><b>Emergencistas</b><span>Que querem dominar a pediatria</span></div>
-      <div class="aud-card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><b>Residentes</b><span>De qualquer especialidade</span></div>
-      <div class="aud-card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><b>Recém-formados</b><span>Começando nos plantões</span></div>
-      <div class="aud-card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.8 2.3A.3.3 0 105 2H4a2 2 0 00-2 2v5a6 6 0 006 6v0a6 6 0 006-6V4a2 2 0 00-2-2h-1a.2.2 0 10.2.3"/><path d="M8 15v1a6 6 0 006 6v0a6 6 0 006-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div><b>Clínicos e generalistas</b><span>No interior e nas cidades</span></div>
-      <div class="aud-card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></div><b>Pediatras</b><span>Que querem revisar a sala de emergência</span></div>
+
+    <div class="about-cards" data-stagger>
+      <div class="mini-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div><b>100% online</b><small>No seu ritmo, sem sair de casa</small></div>
+      </div>
+      <div class="mini-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg></div>
+        <div><b>Certificado de 20h</b><small>Para complementar seu currículo</small></div>
+      </div>
+      <div class="mini-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div><b>Foco no plantão</b><small>O que chega e o que é grave</small></div>
+      </div>
+      <div class="mini-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
+        <div><b>Como eu prescrevo</b><small>Conduta pronta para usar</small></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1119,41 +1058,6 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 </section>
 
 <hr class="divider"/>
-
-<!-- ===== COMPARAÇÃO ===== -->
-<section class="differential">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow reveal">DIFERENCIAL</span>
-      <h2 class="reveal" style="--d:60ms">Não é um curso de pediatria geral. <span class="accent">É emergência pediátrica.</span></h2>
-    </div>
-    <div class="compare-grid">
-      <div class="comp comp-generic reveal-left">
-        <h3>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          Curso genérico
-        </h3>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>Conteúdo amplo de pediatria geral</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>Foco em teoria e ambulatório</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>Pouca conexão com o plantão</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>Doses e condutas soltas</li>
-        </ul>
-      </div>
-      <div class="comp comp-ours reveal-right" style="--d:100ms">
-        <span class="comp-badge">Feito para o plantão</span>
-        <div class="comp-title"><span>Emergências</span><b>Pediátricas</b></div>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Foco no que chega e no que é grave</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Conduta e prescrição do jeito do plantão</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Pensado também para quem atende adultos</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Emergencista pediátrica como professora</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>100% online, com certificado de 20h</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== INSCRIÇÃO / OFERTA ===== -->
 <section id="inscricao" class="enroll">
@@ -1354,13 +1258,23 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
     } else { startTimer(); }
   }
 
-  /* ---- Vídeo Vimeo: carrega só ao clicar ---- */
+  /* ---- Vídeo: link do YouTube ou Vimeo em data-video; carrega só ao clicar ---- */
   var facade = document.getElementById('videoFacade');
   if(facade){
+    var url = (facade.getAttribute('data-video') || '').trim();
+    var yt = url.match(/(?:youtu\.be\/|[?&]v=|embed\/|shorts\/)([\w-]{11})/);
+    var vm = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    var src = yt ? 'https://www.youtube.com/embed/' + yt[1] + '?autoplay=1&rel=0'
+            : vm ? 'https://player.vimeo.com/video/' + vm[1] + '?autoplay=1&title=0&byline=0&portrait=0&color=D8FA0C'
+            : '';
+    if(!src){
+      facade.classList.add('is-empty');
+      facade.querySelector('.play-label').textContent = 'Vídeo em breve';
+    }
     facade.addEventListener('click', function(){
-      var id = facade.getAttribute('data-vimeo');
+      if(!src) return;
       var ifr = document.createElement('iframe');
-      ifr.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0&color=D8FA0C';
+      ifr.src = src;
       ifr.allow = 'autoplay; fullscreen; picture-in-picture';
       ifr.allowFullscreen = true;
       ifr.title = 'Por que todo médico precisa saber atender uma emergência pediátrica?';
