@@ -477,9 +477,9 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
     linear-gradient(180deg,#12260A,#030502);
   box-shadow:0 26px 60px rgba(0,0,0,.55),0 0 50px rgba(155,234,11,.18);
 }
-.inst-photo .halftone{inset:0;-webkit-mask-image:radial-gradient(circle at 100% 0,#000,transparent 55%);mask-image:radial-gradient(circle at 100% 0,#000,transparent 55%)}
-.inst-photo img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:106%;width:auto;max-width:none;object-fit:contain;z-index:1}
-.inst-photo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,transparent,rgba(3,5,2,.85));z-index:2}
+/* Foto em aula: preenche o quadro; tom levemente rebaixado para o fundo claro não estourar */
+.inst-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 42%;transform:scale(1.16);transform-origin:60% 30%;z-index:1;filter:brightness(.9) contrast(1.06) saturate(1.05)}
+.inst-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,5,2,.12) 0%,transparent 30%,transparent 68%,rgba(3,5,2,.88) 100%);z-index:2}
 .corner{position:absolute;width:26px;height:26px;border:2px solid var(--lime);opacity:.75;z-index:3}
 .corner.tl{top:14px;left:14px;border-right:0;border-bottom:0}
 .corner.tr{top:14px;right:14px;border-left:0;border-bottom:0}
@@ -1033,8 +1033,7 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
     <div class="inst-grid">
       <div class="inst-photo-wrap reveal-left">
         <div class="inst-photo">
-          <span class="halftone" aria-hidden="true"></span>
-          <img src="img/patricia-lopes.webp" width="1920" height="1920" alt="Dra. Patrícia Lopes, emergencista pediátrica e professora da Emergency Talks" loading="lazy" />
+          <img src="img/patricia-lopes-aula.webp" width="720" height="1280" alt="Dra. Patrícia Lopes dando aula de emergência pediátrica" loading="lazy" />
           <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
           <span class="inst-tag"><i></i>Professora exclusiva Emergency Talks</span>
         </div>
