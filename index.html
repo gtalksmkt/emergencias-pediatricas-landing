@@ -266,6 +266,7 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
   border:1px solid var(--line);
 }
 .pill svg{width:17px;height:17px;color:var(--lime);flex-shrink:0}
+.pill.bonus{color:var(--white);border-color:var(--line-strong);background:linear-gradient(180deg,rgba(190,245,10,.16),rgba(63,122,5,.12))}
 
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:16px}
 .microcopy{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--gray-mid)}
@@ -534,6 +535,7 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 .info-list .ii svg{width:22px;height:22px;color:var(--lime);flex-shrink:0}
 .info-list .ii span{font-size:.95rem;color:var(--white-warm)}
 .info-list .ii b{color:var(--white);font-weight:600}
+.info-list .ii.bonus{border-color:var(--line-strong);background:rgba(190,245,10,.12)}
 .help-line{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;font-size:.92rem;color:var(--gray-light);flex-wrap:wrap}
 .help-line a{color:var(--lime);font-weight:600;border-bottom:1px solid rgba(216,250,12,.4)}
 .help-line svg{width:18px;height:18px;color:var(--lime)}
@@ -718,8 +720,7 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
 
         <div class="pills reveal" style="--d:290ms">
           <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>15 temas de emergência</span>
-          <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Reanimação, via aérea e choque</span>
-          <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>Como eu prescrevo</span>
+          <span class="pill bonus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>E-book de doses pediátricas grátis</span>
           <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>Celular ou computador</span>
         </div>
 
@@ -836,7 +837,7 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
     <div class="section-head">
       <span class="eyebrow reveal">COMO CONDUZIR</span>
       <h2 class="reveal" style="--d:60ms">Do susto à conduta: <span class="accent">um raciocínio que funciona no plantão.</span></h2>
-      <p class="lead reveal" style="--d:120ms">O curso organiza o atendimento da criança grave em passos claros, para você saber exatamente o que fazer — e em que ordem.</p>
+      <p class="lead reveal" style="--d:120ms">O curso organiza o atendimento da criança grave em passos claros, para você saber qual decisão tomar.</p>
     </div>
 
     <div class="timeline" id="timeline">
@@ -852,7 +853,7 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
           <div class="tl-node"></div>
           <span class="tl-num">02</span>
           <span class="tl-time">Estabilizar</span>
-          <p><b>Via aérea, reanimação e choque:</b> as primeiras medidas que mudam o desfecho.</p>
+          <p><b>Reconhecer o choque e manejar a via aérea:</b> as primeiras medidas que mudam o desfecho.</p>
         </div>
         <div class="tl-step reveal">
           <div class="tl-node"></div>
@@ -896,8 +897,8 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
         <div><b>Foco no plantão</b><small>O que chega e o que é grave</small></div>
       </div>
       <div class="mini-card reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
-        <div><b>Como eu prescrevo</b><small>Conduta pronta para usar</small></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div>
+        <div><b>E-book de doses grátis</b><small>Doses pediátricas para consultar no plantão</small></div>
       </div>
     </div>
   </div>
@@ -997,9 +998,9 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
         <p>Saiba o que fazer nos primeiros minutos, mesmo sem um pediatra por perto.</p>
       </div>
       <div class="benefit reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
-        <h3>Conduta pronta para usar</h3>
-        <p>Prescrições e doses explicadas do jeito que se faz na prática.</p>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div>
+        <h3>E-book de doses pediátricas</h3>
+        <p>Você recebe grátis um e-book com as doses pediátricas para consultar rápido no plantão.</p>
       </div>
       <div class="benefit reveal">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
@@ -1080,7 +1081,7 @@ section{position:relative;padding:clamp(70px,9vw,120px) 0;z-index:1;overflow-x:c
         <div class="ii"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span><b>Curso</b> 100% online</span></div>
         <div class="ii"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg><span><b>Certificado</b> de 20 horas</span></div>
         <div class="ii"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg><span><b>15 temas</b> de emergência</span></div>
-        <div class="ii"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><span><b>Celular</b> ou computador</span></div>
+        <div class="ii bonus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg><span><b>E-book de doses</b> grátis</span></div>
         <div class="ii"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span><b>Dra. Patrícia</b> Lopes</span></div>
         <div class="ii"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span><b>Compra</b> segura</span></div>
       </div>
